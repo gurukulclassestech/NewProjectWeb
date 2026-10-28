@@ -645,7 +645,7 @@ class StatusUpdate(BaseModel):
 # ---------- Health ----------
 @api.get('/')
 async def root():
-    return {'message': 'NJ Edu-Hub API'}
+    return {'message': 'Backend is working fine.'}
 
 # ---------- AUTH endpoints ----------
 @api.post('/admin/login', response_model=TokenOut)

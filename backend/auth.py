@@ -66,8 +66,8 @@ async def ensure_default_admin(db):
     if await db.admins.count_documents({}) == 0:
         await db.admins.insert_one({
             'id': str(uuid.uuid4()),
-            'username': 'admin',
-            'password_hash': hash_pw('admin@123'),
+            'username': os.environ.get('ADMIN_USERNAME', 'admin'),
+            'password_hash': hash_pw(os.environ.get('ADMIN_PASSWORD', 'admin@123')),
             'created_at': datetime.utcnow().isoformat(),
         })
 

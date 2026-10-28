@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { STORAGE_KEY } from './auth/AuthContext';
 
-const BASE = 'https://new-project-web-bice.vercel.app/';
-const API = `${BASE.replace(/\/$/, '')}/api`;
+const API = (process.env.REACT_APP_API_URL || '/api').replace(/\/$/, '');
 
 const http = axios.create({ baseURL: API, timeout: 20000 });
 
