@@ -643,9 +643,13 @@ class StatusUpdate(BaseModel):
     status: LeadStatus
 
 # ---------- Health ----------
+@app.get('/')
+async def backend_root():
+    return {'message': 'Backend is running. FastAPI is working.'}
+
 @api.get('/')
 async def root():
-    return {'message': 'Backend is working fine.'}
+    return {'message': 'Backend is running. FastAPI is working.'}
 
 # ---------- AUTH endpoints ----------
 @api.post('/admin/login', response_model=TokenOut)
